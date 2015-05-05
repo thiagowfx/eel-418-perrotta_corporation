@@ -1,4 +1,4 @@
-package br.ufrj.lpc.mvc_many_handlers_maven;
+package com.thiagoperrotta;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -7,24 +7,20 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 public class Controller extends HttpServlet {
-
-    // Este controlador pode chamar vários handlers (tratadores de páginas)
-    // Todos os hamdlers implementam a mesma interface.
-    protected void processRequest(  HttpServletRequest request,
-                                    HttpServletResponse response)
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
         request.setCharacterEncoding("UTF8");
         response.setCharacterEncoding("UTF8");
-        IFTratadorDePaginas tratador;
+        
         try {
-            String nomeDoTratadorDePagina = request.getParameter("nomeDoTratadorDePagina");
-            tratador = (IFTratadorDePaginas) Class.forName(nomeDoTratadorDePagina).newInstance();
-            String nomeDaPaginaDeResposta = tratador.processar(request, response);
-            request.getRequestDispatcher(nomeDaPaginaDeResposta).forward(request, response);
+            String pagehandlerName = request.getParameter("pagehandlerName");
+            IFPageHandler pageHandler = (IFPageHandler)Class.forName(pagehandlerName).newInstance();
+            String responsePageName = pageHandler.process(request, response);
+            request.getRequestDispatcher(responsePageName).forward(request, response);
         } catch (Exception e) {
-            request.setAttribute("EXCESSAO_CONTROLLER", e);
-            request.getRequestDispatcher("/erro.jsp").forward(request, response);
+            request.setAttribute("CONTROLLER_EXCEPTION", e);
+            request.getRequestDispatcher("/error.jsp").forward(request, response);
         }
     }
 

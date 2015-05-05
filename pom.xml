@@ -3,11 +3,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.thiagoperrotta</groupId>
-    <artifactId>perrotta_jl_corporation</artifactId>
+    <artifactId>perrotta_corporation</artifactId>
     <version>1.0</version>
     <packaging>war</packaging>
 
-    <name>perrotta_jl_corporation</name>
+    <name>perrotta_corporation</name>
 
     <properties>
         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
