@@ -1,6 +1,5 @@
 <%@page import="com.thiagoperrotta.model.PerrottaInfo"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%-- <%@page import="br.ufrj.lpc.mvc_many_handlers_maven.modelo.ParMoedaValor"%> --%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -10,7 +9,7 @@
     </head>
     <body>
         <center>
-        <h1 style="font-size:48px;">Detalhes do Produto</h1>
+        <h1>Detalhes do Produto</h1>
         <form method="GET" action="controller">
             <input type="hidden"
                    name="pagehandlerName"
@@ -20,16 +19,20 @@
             <table border="0" style="border:2px solid black;border-collapse:collapse;">
                     <tr>
                         <td align="center" style="border:1px solid black;width:70px;border-collapse:collapse;">
-                            <%= "Nome" %>
+                            <%= "<b>Nome</b>" %>
                         </td>
                         <td align="center" style="border:1px solid black;width:200px;border-collapse:collapse;">
-                            <%= "Ultrabook Super" %>
+                            <%= "<b>Atributo</b>" %>
                         </td>
                     </tr>
             </table>
             <br>    
             <br>    
-            <input type="submit" name="botaoSubmit" value="VOLTAR"/>
+            Quantidade: <input type="number" name="PRODUCT_QUANTITY"/>
+            <input type="submit" name="SUBMIT_BUTTON" value="COMPRAR"/>
+            <br/>
+            <br/>
+            <input type="submit" name="SUBMIT_BUTTON" value="VOLTAR"/>
         </form>
         </center>
     </body>
