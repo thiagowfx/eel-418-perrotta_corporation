@@ -7,15 +7,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 public class Controller extends HttpServlet {
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
         request.setCharacterEncoding("UTF8");
         response.setCharacterEncoding("UTF8");
-        
+
         try {
             String pagehandlerName = request.getParameter("pagehandlerName");
-            IFPageHandler pageHandler = (IFPageHandler)Class.forName(pagehandlerName).newInstance();
+            IFPageHandler pageHandler = (IFPageHandler) Class.forName(pagehandlerName).newInstance();
             String responsePageName = pageHandler.process(request, response);
             request.getRequestDispatcher(responsePageName).forward(request, response);
         } catch (Exception e) {
@@ -26,8 +27,7 @@ public class Controller extends HttpServlet {
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
-     * Handles the HTTP
-     * <code>GET</code> method.
+     * Handles the HTTP <code>GET</code> method.
      *
      * @param request servlet request
      * @param response servlet response
@@ -41,8 +41,7 @@ public class Controller extends HttpServlet {
     }
 
     /**
-     * Handles the HTTP
-     * <code>POST</code> method.
+     * Handles the HTTP <code>POST</code> method.
      *
      * @param request servlet request
      * @param response servlet response

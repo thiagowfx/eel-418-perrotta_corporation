@@ -5,6 +5,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 public class pagehandler_error_jsp implements IFPageHandler {
+
     @Override
     public String process(HttpServletRequest request, HttpServletResponse response) {
         return "/";

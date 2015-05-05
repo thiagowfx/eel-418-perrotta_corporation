@@ -1,4 +1,10 @@
 @import url('http://fonts.googleapis.com/css?family=Open+Sans');
+@import url(http://fonts.googleapis.com/css?family=Roboto:700,400);
+
+.error {
+    color: red;
+    font-weight: bold;
+}
 
 * {
     font-family: 'Open Sans', sans-serif;
@@ -9,6 +15,15 @@ body {
 }
 
 h1 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
     text-align: center;
     font-size: 48px;
+}
+
+h1.subtitle {
+    font-family: 'Roboto', sans-serif;
+    font-style: italic;
+    font-size: 28px;
+    color: gray;
 }
