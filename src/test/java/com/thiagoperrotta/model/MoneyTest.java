@@ -36,6 +36,7 @@ public class MoneyTest {
     @Test
     public void testGetAmount() {
         assertEquals(10.0, money.getAmount(), delta);
+        assertEquals(10.0, new Money(10).getAmount(), delta);
     }
 
     @Test
@@ -54,12 +55,20 @@ public class MoneyTest {
         money.setCurrency(Currency.USD);
         assertEquals(Currency.USD, money.getCurrency());
     }
+    
+    @Test
+    public void testGetTotalAmount() {
+        assertEquals(20.00, money.getTotalAmount(2).getAmount(), delta);
+        assertEquals(3.98, new Money(1.99).getTotalAmount(2).getAmount(), delta);
+    }
 
     @Test
     public void testToString() {
         assertEquals("R$ 10,00", money.toString());
-        Money m = new Money(15.00, Currency.USD);
-        assertEquals("$ 15,00", m.toString());
+        Money m1 = new Money(15.00, Currency.USD);
+        assertEquals("$ 15,00", m1.toString());
+        Money m2 = new Money(9599.96);
+        assertEquals("R$ 9599,96", m2.toString());
     }
 
 }

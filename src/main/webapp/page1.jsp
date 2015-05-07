@@ -43,17 +43,20 @@
     <h1 class="motto"><%= PerrottaInfo.getSlogan()%></h1>
 
     <div class="grid-container">
-        <% for (Product product : products) {%>
+        <% for(int i = 0; i < products.size(); ++i) {
+            Product product = products.get(i);
+        %>
         <div class="grid-33" style="text-align: center;">
             <form method="GET" action="controller">
                 <input type="hidden" name="pagehandlerName" value="com.thiagoperrotta.pagehandler.Pagehandler_page1_jsp" />
+                <input type="hidden" name="PRODUCTS_INDEX" value="<%= i %>" />
                 <div class="product-name"><%= product.getName()%></div>
                 <div class="price"><%= product.getPrice()%></div>
                 <br />
-                <img src="<%= product.getImage()%>" height="200"/>
+                <input type="image" src="<%= product.getImage()%>" height="200px"/>
                 <br />
                 <br />
-                <input type="submit" name="botaoSubmit" value="COMPRAR"/>
+                <input type="submit" name="SUBMIT_BUTTON1" value="COMPRAR"/>
             </form>
         </div>
         <% }%>

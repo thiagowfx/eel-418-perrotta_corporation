@@ -34,6 +34,10 @@ public class Money implements Serializable {
     public Money(Double amount) {
         this(amount, Currency.BRL);
     }
+    
+    public Money(Integer amount) {
+        this((double)amount, Currency.BRL);
+    }
 
     public Double getAmount() {
         return amount;
@@ -50,9 +54,13 @@ public class Money implements Serializable {
     public void setCurrency(Currency currency) {
         this.currency = currency;
     }
+    
+    public Money getTotalAmount(int quantity) {
+        return new Money(quantity * amount, currency);
+    }
 
     @Override
     public String toString() {
-        return currency + " " + amount.intValue() + "," + new DecimalFormat("00").format((amount.intValue() * 100) % 100);
+        return currency + " " + amount.intValue() + "," + new DecimalFormat("00").format((amount * 100) % 100);
     }
 }

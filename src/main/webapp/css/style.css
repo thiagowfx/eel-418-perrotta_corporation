@@ -16,6 +16,13 @@
     font-size: x-large;
 }
 
+.congratulations {
+    font-size: x-large;
+    font-weight: bold;
+    text-decoration: underline;
+    text-color: red;
+}
+
 body {
     background-color: bisque;
     font-family: 'Open Sans', sans-serif;
@@ -49,7 +56,7 @@ p.description {
     font-size: large;
 }
 
-input.cancel {
+.cancel {
     background-color: lightyellow; 
     font-weight: bold;
     height: 48px;

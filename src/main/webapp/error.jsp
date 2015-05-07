@@ -3,19 +3,24 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1" />
         <title><%= PerrottaInfo.getCorporationName()%> - Error Page</title>
-        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link rel="stylesheet" type="text/css" media="all" href="css/unsemantic/reset.css" />
+        <link rel="stylesheet" type="text/css" media="all" href="css/unsemantic/text.css" />
+        <link rel="stylesheet" type="text/css" media="all" href="css/unsemantic/unsemantic-grid-responsive-no-ie7.css" />
+        <link rel="stylesheet" type="text/css" href="css/style.css" />
     </head>
     <body>
-        <h1 class="title">Error Page</h1>
-    <center>
         <form method="GET" action="controller">
-            <div class="error">Exception: <% out.println(request.getAttribute("CONTROLLER_EXCEPTION"));%></div>
-            <br/>
-            <input type="hidden" name="pagehandlerName" value="com.thiagoperrotta.pagehandler.Pagehandler_error_jsp" />
-            <input type="submit" value="Voltar para a Página Inicial" />
+            <h1 class="title">Error Page</h1>
+            <center>
+                <input type="hidden" name="pagehandlerName" value="com.thiagoperrotta.pagehandler.Pagehandler_error_jsp" />
+                <div class="error">Exception: <% out.println(request.getAttribute("CONTROLLER_EXCEPTION"));%></div>
+            </center>
+            <center>
+                <input type="submit" value="Voltar para a Página Inicial" />
+            </center>
         </form>
-    </center>
-</body>
+    </body>
 </html>

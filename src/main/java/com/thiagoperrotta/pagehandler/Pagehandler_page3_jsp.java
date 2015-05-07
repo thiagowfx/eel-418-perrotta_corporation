@@ -5,8 +5,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 public class Pagehandler_page3_jsp implements IFPageHandler {
+
     @Override
     public String process(HttpServletRequest request, HttpServletResponse response) {
-        return "page2.jsp";
+        return "page1.jsp";
     }
 }

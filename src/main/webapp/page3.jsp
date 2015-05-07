@@ -6,9 +6,9 @@
     Product PRODUCT = new Product(
             "Ultrabook Levelho Lazypad M42U",
             "Portátil. Leve. Ultrafino. Com o design e a qualidade que você já conhece.",
-            new Money(2399.99),
+            new Money(2399.00),
             "assets/images/ultrabook.png"
-    );
+    );    
 %>
 <!DOCTYPE html>
 <html>
@@ -36,25 +36,25 @@
                 </div>
                 <div class="prefix-10 grid-20 suffix-20" style="text-align: center;">
                     <center>
-                    <table class="bordered">
-                        <tr>
-                            <td>Quantidade</td>
-                            <td>${param.QUANTITY}</td>
-                        </tr>
-                        <tr>
-                            <td>Preço Unitário</td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>Preço TOTAL</td>
-                            <td></td>
-                        </tr>
-                    </table>
+                        <table class="bordered">
+                            <tr>
+                                <td>Quantidade</td>
+                                <td>${param.QUANTITY}</td>
+                            </tr>
+                            <tr>
+                                <td>Preço Unitário</td>
+                                <td><%= PRODUCT.getPrice()%></td>
+                            </tr>
+                            <tr>
+                                <td>Preço TOTAL</td>
+                                <td><%= PRODUCT.getPrice().getTotalAmount(Integer.parseInt(request.getParameter("QUANTITY")))%></td>
+                            </tr>
+                        </table>
                     </center>
                     <br />
                     <br />
-                    <input type="submit" class="cancel" name="SUBMIT_BUTTON" value="VOLTAR"/>
-                    <input type="submit" class="confirm" name="SUBMIT_BUTTON" value="COMPRAR"/>
+                    <button class="cancel" onClick="window.history.back()">VOLTAR</button>
+                    <input type="submit" class="confirm" name="SUBMIT_BUTTON3" value="COMPRAR"/>
                 </div>
             </form>
         </div>
