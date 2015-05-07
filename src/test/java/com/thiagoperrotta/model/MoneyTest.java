@@ -1,7 +1,6 @@
 package com.thiagoperrotta.model;
 
 import com.thiagoperrotta.model.Money.Currency;
-import java.text.NumberFormat;
 import org.junit.After;
 import org.junit.AfterClass;
 import static org.junit.Assert.assertEquals;
@@ -27,7 +26,7 @@ public class MoneyTest {
 
     @Before
     public void setUp() {
-        money = new Money(10.0, Currency.BRL);
+        money = new Money(10.00, Currency.BRL);
     }
 
     @After
@@ -58,7 +57,9 @@ public class MoneyTest {
 
     @Test
     public void testToString() {
-        assertEquals("R$ " + NumberFormat.getCurrencyInstance().format(money.getAmount()), money.toString());
+        assertEquals("R$ 10,00", money.toString());
+        Money m = new Money(15.00, Currency.USD);
+        assertEquals("$ 15,00", m.toString());
     }
 
 }

@@ -7,7 +7,7 @@ public class Product implements Serializable {
     String name;
     String description;
     Money price;
-    // TODO: image
+    String image;
 
     public String getName() {
         return name;
@@ -33,9 +33,24 @@ public class Product implements Serializable {
         this.price = price;
     }
 
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
     public Product(String name, String description, Money price) {
         this.name = name;
         this.description = description;
         this.price = price;
+    }
+
+    public Product(String name, String description, Money price, String image) {
+        this.name = name;
+        this.description = description;
+        this.price = price;
+        this.image = image;
     }
 }

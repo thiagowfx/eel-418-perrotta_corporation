@@ -1,60 +1,63 @@
+<%@page import="com.thiagoperrotta.model.Money"%>
+<%@page import="com.thiagoperrotta.model.Money.Currency"%>
 <%@page import="com.thiagoperrotta.model.Product"%>
 <%@page import="com.thiagoperrotta.model.PerrottaInfo"%>
 <%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%
+    ArrayList<Product> products = new ArrayList<>();
+
+    products.add(new Product(
+            "Ultrabook Levelho Lazypad M42U",
+            "Portátil. Leve. Ultrafino. Com o design e a qualidade que você já conhece.",
+            new Money(2399.99),
+            "assets/images/ultrabook.png"
+    ));
+
+    products.add(new Product(
+            "Tablet Universe T4",
+            "Prático. Divertido. Agora com processador quad core e 20 gramas mais leve.",
+            new Money(649.99, Currency.USD),
+            "assets/images/tablet.png"
+    ));
+
+    products.add(new Product(
+            "Smartphone Nezzuxx Azure J1",
+            "O novo smartphone da linha Nezzuxx. Dessa vez, você vai se surpreender ainda mais.",
+            new Money(949.99),
+            "assets/images/smartphone.png"
+    ));
+%>
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title><%= PerrottaInfo.getCorporationName() %> - Index dos Produtos</title>
-        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1" />
+        <title><%= PerrottaInfo.getCorporationName()%> - Index dos Produtos</title>
+        <link rel="stylesheet" type="text/css" media="all" href="css/unsemantic/reset.css" />
+        <link rel="stylesheet" type="text/css" media="all" href="css/unsemantic/text.css" />
+        <link rel="stylesheet" type="text/css" media="all" href="css/unsemantic/unsemantic-grid-responsive-no-ie7.css" />
+        <link rel="stylesheet" type="text/css" href="css/style.css" />
     </head>
-        <h1><%= PerrottaInfo.getCorporationName() %></h1>
-        <h1 class="subtitle"><%= PerrottaInfo.getSlogan() %></h1>
-        <input type="hidden"
-               name="pagehandlerName"
-               value="com.thiagoperrotta.pagehandler.pagehandler_pagina1_jsp" />
+    <h1 class="title"><%= PerrottaInfo.getCorporationName()%></h1>
+    <h1 class="motto"><%= PerrottaInfo.getSlogan()%></h1>
 
-        <%
-            ArrayList<Product> products = new ArrayList<>();
-            
-            products.add(new Product("Ultrabook", 
-                    "Portátil. Leve. Ultrafino. Com a tecnologia e design que você já conhece.", 
-                    BRL(2399.00)));
-            //ArrayList<String> products = new ArrayList<>();
-            //products.add("alfa");
-            //products.add("bravo");
-            //products.add("charlie");
-        %>
-
-
-        <% for(String product : products) { %>
+    <div class="grid-container">
+        <% for (Product product : products) {%>
+        <div class="grid-33" style="text-align: center;">
             <form method="GET" action="controller">
-                <input type="hidden"
-                       name="pagehandlerName"
-                       value="com.thiagoperrotta.pagehandler.pagehandler_pagina2_jsp" />
-
-                <li> <%= product %> <input type="submit" name="botaoSubmit" value="VOLTAR"/>
+                <input type="hidden" name="pagehandlerName" value="com.thiagoperrotta.pagehandler.Pagehandler_page1_jsp" />
+                <div class="product-name"><%= product.getName()%></div>
+                <div class="price"><%= product.getPrice()%></div>
                 <br />
+                <img src="<%= product.getImage()%>" height="200"/>
+                <br />
+                <br />
+                <input type="submit" name="botaoSubmit" value="COMPRAR"/>
             </form>
-        <% } %>
-
-        <%--
-        <h2>Valor em Reais (BRL):</h2>
-            <%
-                String valor = (String)request.getAttribute("VALOR_EM_REAIS");
-                if(valor==null) valor = "";
-            %>
-            R$ <input type="text" size="30"
-                      name="VALOR_EM_REAIS"
-                      value="<%= valor %>"/>
-        <input type="submit" name="botaoSubmit" value="ENVIAR"/>
-        <%
-            String erro = (String)request.getAttribute("MENSAGEM_DE_ERRO");
-            if(erro==null) erro = "";
-        %>
-        <font color="red"><%= erro %></font>
-        --%>
-        </center>
-    </body>
+        </div>
+        <% }%>
+    </div>
+</center>
+</body>
 </html>

@@ -1,7 +1,7 @@
 package com.thiagoperrotta.model;
 
 import java.io.Serializable;
-import java.text.NumberFormat;
+import java.text.DecimalFormat;
 
 public class Money implements Serializable {
 
@@ -53,6 +53,6 @@ public class Money implements Serializable {
 
     @Override
     public String toString() {
-        return currency + " " + NumberFormat.getCurrencyInstance().format(amount);
+        return currency + " " + amount.intValue() + "," + new DecimalFormat("00").format((amount.intValue() * 100) % 100);
     }
 }

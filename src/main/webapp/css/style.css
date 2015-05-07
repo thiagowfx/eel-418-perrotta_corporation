@@ -1,29 +1,77 @@
-@import url('http://fonts.googleapis.com/css?family=Open+Sans');
-@import url(http://fonts.googleapis.com/css?family=Roboto:700,400);
+@import url('http://fonts.googleapis.com/css?family=Open+Sans:700,400');
+@import url('http://fonts.googleapis.com/css?family=Roboto:700,400');
 
 .error {
     color: red;
     font-weight: bold;
 }
 
-* {
-    font-family: 'Open Sans', sans-serif;
+.product-name {
+    font-size: large;
+}
+
+.price {
+    color: crimson;
+    font-weight: bold;
+    font-size: x-large;
 }
 
 body {
     background-color: bisque;
+    font-family: 'Open Sans', sans-serif;
 }
 
-h1 {
-    font-family: 'Roboto', sans-serif;
-    font-weight: bold;
+h1.title {
     text-align: center;
+    font-family: 'Roboto', sans-serif;
     font-size: 48px;
+    font-weight: bold;
+    color: indigo;
 }
 
-h1.subtitle {
+h1.motto {
+    text-align: center;
     font-family: 'Roboto', sans-serif;
-    font-style: italic;
     font-size: 28px;
+    font-style: italic;
     color: gray;
+}
+
+h2.subtitle {
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    font-size: 28px;
+    font-weight: bold;
+    color: darkolivegreen;
+}
+
+p.description {
+    font-size: large;
+}
+
+input.cancel {
+    background-color: lightyellow; 
+    font-weight: bold;
+    height: 48px;
+}
+
+input.confirm {
+    background-color: lightgreen; 
+    font-weight: bold;
+    height: 48px;
+}
+
+table.bordered {
+    border-width: 1px;
+    border-style: solid;
+    border-color: black;
+}
+
+table.bordered td {
+    padding-left: 10px;
+    padding-right: 10px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: black;
+    text-align: center;
 }

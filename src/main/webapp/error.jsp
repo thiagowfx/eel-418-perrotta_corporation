@@ -8,12 +8,12 @@
         <link rel="stylesheet" type="text/css" href="css/style.css">
     </head>
     <body>
-        <h1>Error Page</h1>
+        <h1 class="title">Error Page</h1>
     <center>
         <form method="GET" action="controller">
             <div class="error">Exception: <% out.println(request.getAttribute("CONTROLLER_EXCEPTION"));%></div>
             <br/>
-            <input type="hidden" name="pagehandlerName" value="com.thiagoperrotta.pagehandler.pagehandler_error_jsp" />
+            <input type="hidden" name="pagehandlerName" value="com.thiagoperrotta.pagehandler.Pagehandler_error_jsp" />
             <input type="submit" value="Voltar para a Página Inicial" />
         </form>
     </center>
