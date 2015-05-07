@@ -20,6 +20,7 @@
             </center>
             <center>
                 <input type="submit" value="Voltar para a Página Inicial" />
+                <input type="submit" onClick="window.history.back()" value="Voltar para a página anterior" />
             </center>
         </form>
     </body>

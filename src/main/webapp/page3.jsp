@@ -3,12 +3,10 @@
 <%@page import="com.thiagoperrotta.model.PerrottaInfo"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
-    Product PRODUCT = new Product(
-            "Ultrabook Levelho Lazypad M42U",
-            "Portátil. Leve. Ultrafino. Com o design e a qualidade que você já conhece.",
-            new Money(2399.00),
-            "assets/images/ultrabook.png"
-    );    
+    Product PRODUCT = (Product) request.getAttribute("PRODUCT");
+    if(PRODUCT == null) {
+        throw new Exception("PRODUCT is null while trying to access page3.jsp");
+    }
 %>
 <!DOCTYPE html>
 <html>

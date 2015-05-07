@@ -33,7 +33,7 @@
                     <h2 class="subtitle"><%= PRODUCT.getName()%></h2>
                     <br />
                     <p class="description"><%= PRODUCT.getDescription()%></p>
-                    QUANTIDADE: <input type="number" style="width: 60px;" name="QUANTITY" />
+                    QUANTIDADE: <input type="number" style="width: 60px;" name="QUANTITY" value="1" />
                     <br />
                     <br />
                     <input type="submit" class="cancel" name="SUBMIT_BUTTON2" value="VOLTAR"/>
