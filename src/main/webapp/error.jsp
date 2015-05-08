@@ -12,7 +12,7 @@
         <link rel="stylesheet" type="text/css" href="css/style.css" />
     </head>
     <body>
-        <form method="GET" action="controller">
+        <form method="POST" action="controller">
             <h1 class="title">Error Page</h1>
             <center>
                 <input type="hidden" name="pagehandlerName" value="com.thiagoperrotta.pagehandler.Pagehandler_error_jsp" />

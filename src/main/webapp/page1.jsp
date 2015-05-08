@@ -24,9 +24,11 @@
     products.add(new Product(
             "Smartphone Nezzuxx Azure J1",
             "O novo smartphone da linha Nezzuxx. Dessa vez, você vai se surpreender ainda mais.",
-            new Money(949.99),
+            new Money(949.90),
             "assets/images/smartphone.png"
     ));
+    
+    request.getSession().setAttribute("PRODUCTS", products);
 %>
 <!DOCTYPE html>
 <html>
@@ -47,7 +49,7 @@
             Product product = products.get(i);
         %>
         <div class="grid-33" style="text-align: center;">
-            <form method="GET" action="controller">
+            <form method="POST" action="controller">
                 <input type="hidden" name="pagehandlerName" value="com.thiagoperrotta.pagehandler.Pagehandler_page1_jsp" />
                 <input type="hidden" name="PRODUCTS_INDEX" value="<%= i %>" />
                 <div class="product-name"><%= product.getName()%></div>

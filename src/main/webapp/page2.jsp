@@ -3,7 +3,8 @@
 <%@page import="com.thiagoperrotta.model.PerrottaInfo"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
-    Product PRODUCT = (Product) request.getAttribute("PRODUCT");
+    Product PRODUCT = (Product) request.getSession().getAttribute("PRODUCT");
+    
     if(PRODUCT == null) {
         throw new Exception("PRODUCT is null while trying to access page2.jsp");
     }
@@ -24,7 +25,7 @@
         <br />
         <br />
         <div class="grid-container" style="text-align: center;">
-            <form method="GET" action="controller">
+            <form method="POST" action="controller">
                 <input type="hidden" name="pagehandlerName" value="com.thiagoperrotta.pagehandler.Pagehandler_page2_jsp" />
                 <div class="grid-50">
                     <img src="<%= PRODUCT.getImage()%>" />
@@ -33,6 +34,7 @@
                     <h2 class="subtitle"><%= PRODUCT.getName()%></h2>
                     <br />
                     <p class="description"><%= PRODUCT.getDescription()%></p>
+                    <p class="price">Preço unitário: <%= PRODUCT.getPrice() %></p>
                     QUANTIDADE: <input type="number" style="width: 60px;" name="QUANTITY" value="1" />
                     <br />
                     <br />
